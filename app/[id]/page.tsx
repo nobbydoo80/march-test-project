@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useHttpClient } from "../hook/useHttpClient";
@@ -27,7 +28,7 @@ export default function PostPage({ params }: { params: { id: string } }) {
     fetchPost();
   }, [params.id]);
 
-  async function handleUpdate(e: React.FormEvent) {
+  async function updatePost(e: React.FormEvent) {
     e.preventDefault();
     await sendRequest(
       `${process.env.API_URL}/posts/${params.id}`,
@@ -38,7 +39,7 @@ export default function PostPage({ params }: { params: { id: string } }) {
     router.push("/");
   }
 
-  async function handleDelete() {
+  async function deletePost() {
     await sendRequest(
       `${process.env.API_URL}/posts/${params.id}`,
       "DELETE",
@@ -57,7 +58,7 @@ export default function PostPage({ params }: { params: { id: string } }) {
       ) : (
         <div>
           <h1 className="text-3xl font-bold mb-6">Edit Post</h1>
-          <form onSubmit={handleUpdate} className="space-y-4">
+          <form onSubmit={updatePost} className="space-y-4">
             <div>
               <label className="block text-lg font-medium">Title</label>
               <input
@@ -84,7 +85,7 @@ export default function PostPage({ params }: { params: { id: string } }) {
             </button>
             <button
               type="button"
-              onClick={handleDelete}
+              onClick={deletePost}
               className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-700 ml-4"
             >
               Delete Post

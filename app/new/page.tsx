@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useHttpClient } from "../hook/useHttpClient";
@@ -26,24 +27,30 @@ export default function NewPostPage() {
       <h1 className="text-3xl font-bold mb-6">Create New Post</h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label className="block text-lg font-medium">Title</label>
+          <label htmlFor="title" className="block text-lg font-medium">
+            Title
+          </label>
           <input
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
+            id="title"
             className="border p-2 w-full rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="Enter post title"
             required
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
           />
         </div>
         <div>
-          <label className="block text-lg font-medium">Body</label>
+          <label htmlFor="body" className="block text-lg font-medium">
+            Body
+          </label>
           <textarea
-            value={body}
-            onChange={(e) => setBody(e.target.value)}
+            id="body"
             className="border p-2 w-full h-32 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="Enter post body"
             required
-          ></textarea>
+            value={body}
+            onChange={(e) => setBody(e.target.value)}
+          />
         </div>
         <button
           type="submit"

@@ -1,13 +1,20 @@
-// app/layout.tsx
-import '../styles/globals.css';
+import "../styles/globals.css";
+import React from "react";
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
       <body>
         <nav className="bg-gray-800 p-4">
           <div className="container mx-auto">
-            <a href="/" className="text-white font-bold mr-6 hover:text-gray-400">
+            <a
+              href="/"
+              className="text-white font-bold mr-6 hover:text-gray-400"
+            >
               Home
             </a>
             <a href="/new" className="text-white font-bold hover:text-gray-400">
