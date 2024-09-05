@@ -11,7 +11,7 @@ This is a simple CRUD application using Next.js, TypeScript, and JSONPlaceholder
 ## Setup
 
 1. Clone the repository:
-git clone <your-repo-url>
+git clone your-repo-url
 
 2. Install the dependencies:
 npm install
